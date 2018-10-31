@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfApp1.ViewModels
+﻿namespace WpfApp1.ViewModels
 {
     using System.Windows.Input;
-
     using Prism.Commands;
     using Prism.Mvvm;
-
     using WpfApp1.Models;
 
     public class ViewBViewModel : BindableBase
@@ -21,13 +13,11 @@ namespace WpfApp1.ViewModels
 
         private string answer;
 
-        private ICalc calc;
-
         private string title = "ViewB";
 
         public ViewBViewModel(ICalc calc)
         {
-            this.calc = calc;
+            this.Calc = calc;
 
             this.AddCommand = new DelegateCommand(this.Add, this.CanAdd)
                 .ObservesProperty(() => this.X).ObservesProperty(() => this.Y);
@@ -57,14 +47,15 @@ namespace WpfApp1.ViewModels
             set => this.SetProperty(ref this.title, value);
         }
 
-        public ICommand AddCommand { get; private set; }
+        public ICommand AddCommand { get; }
+
+        private ICalc Calc { get; set; }
 
         private bool CanAdd() => !string.IsNullOrWhiteSpace(this.X) && !string.IsNullOrWhiteSpace(this.y);
 
         private void Add()
         {
-            this.Answer = this.calc.Add(this.X, this.Y);
+            this.Answer = this.Calc.Add(this.X, this.Y);
         }
-
     }
 }

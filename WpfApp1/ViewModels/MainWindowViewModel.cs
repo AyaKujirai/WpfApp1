@@ -1,13 +1,6 @@
 ﻿namespace WpfApp1.ViewModels
 {
-    using System;
-
-    using Prism.Commands;
-    using Prism.Ioc;
     using Prism.Mvvm;
-    using Prism.Regions;
-
-    using WpfApp1.Views;
 
     public class MainWindowViewModel : BindableBase
     {

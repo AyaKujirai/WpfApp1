@@ -8,11 +8,11 @@ namespace WpfApp1.Views
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        private IContainerExtension container;
+        private readonly IContainerExtension container;
 
-        private IRegionManager regionManager;
+        private readonly IRegionManager regionManager;
 
         public MainWindow(IContainerExtension container, IRegionManager regionManager)
         {
@@ -20,10 +20,10 @@ namespace WpfApp1.Views
             this.container = container;
             this.regionManager = regionManager;
 
-            this.Loaded += MainWindow_Loaded;
+            this.Loaded += this.MainWindowLoaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void MainWindowLoaded(object sender, RoutedEventArgs e)
         {
             var region = this.regionManager.Regions["ContentRegion"];
             region.Add(this.container.Resolve<ViewA>());

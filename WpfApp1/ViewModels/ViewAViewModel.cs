@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WpfApp1.ViewModels
 {
@@ -55,13 +51,13 @@ namespace WpfApp1.ViewModels
             set => this.SetProperty(ref this.title, value);
         }
 
-        public DelegateCommand ExecuteDelegateCommand { get; private set; }
+        public DelegateCommand ExecuteDelegateCommand { get; }
 
-        public DelegateCommand<string> ExecuteGenericDelegateCommand { get; private set; }
+        public DelegateCommand<string> ExecuteGenericDelegateCommand { get; }
 
-        public DelegateCommand DelegateCommandObservesProperty { get; private set; }
+        public DelegateCommand DelegateCommandObservesProperty { get; }
 
-        public DelegateCommand DelegateCommandObservesCanExecute { get; private set; }
+        public DelegateCommand DelegateCommandObservesCanExecute { get; }
 
         private void Execute() => this.UpdateText = $"Updated: {DateTime.Now}";
 

@@ -1,34 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
     public interface ISample4
     {
-        string GetContents(string message);
+        Guid InstanceId { get; set; }
 
-        Guid InstanceID();
+        string GetContents(string message);
     }
+
     public class Sample4 : ISample4
     {
-        private Guid instanceID;
-
         public Sample4()
         {
-            this.instanceID = Guid.NewGuid();
+            this.InstanceId = Guid.NewGuid();
         }
+
+        public Guid InstanceId { get; set; }
 
         public string GetContents(string message)
         {
             return $"[Sample4]:{message}";
-        }
-
-        public Guid InstanceID()
-        {
-            return this.instanceID;
         }
     }
 }
