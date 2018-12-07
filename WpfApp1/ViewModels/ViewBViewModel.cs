@@ -55,7 +55,7 @@
 
         private void Add()
         {
-            this.Answer = this.Calc.Add(this.X, this.Y);
+            this.Answer = this.Calc.Add(this.X, this.Y, this.Answer);
         }
     }
 }

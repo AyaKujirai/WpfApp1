@@ -13,7 +13,7 @@ namespace WpfApp1
     /// </summary>
     public partial class App
     {
-        protected override Window CreateShell() => this.Container.Resolve<ScopeTestView>();
+        protected override Window CreateShell() => this.Container.Resolve<MainWindow>();
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
